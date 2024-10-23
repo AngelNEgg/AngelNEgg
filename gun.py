@@ -1,16 +1,30 @@
 import random
 import time
 
-jam = random.randint(0,1)
+rng1 = random.randint(1,5)
+rng2 = random.randint(1,5)
 bullets = 6
-reload = 2.25
 
-def shoot_func(x,y):
-    if x == random.randint(0,1):
-        print("pew")
-        y = y - 1
-        if y < 1:
-            print("reload...")
-            time.sleep(reload)
+def shoot_func(s,x,y):
+    s -= 1
+    print("pew")
+    time.sleep(0.25)
+    shoot_func(s,x,y)
+    
+    if x == y:
+        print("jammed...")
+        time.sleep(3)
+        shoot_func(s,x,y)
         
-shoot_func(jam,bullets)
+    elif x != y:
+        s -= 1
+        print("pew")
+        time.sleep(0.25)
+        shoot_func(s,x,y)
+        
+    elif s == 0:
+        print("reloading...")
+        time.sleep(2.5)
+        shoot_func(s,x,y)
+        
+shoot_func(bullets,rng1,rng2)
