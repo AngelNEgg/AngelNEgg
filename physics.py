@@ -7,11 +7,11 @@ import simplegui
 
 # Constants
 WIDTH = 600
-HEIGHT = 600
+HEIGHT = 400
 PLAYER_SIZE = 20
-GRAVITY = 0.15
-JUMP_STRENGTH = -6
-SPEED = 3.5
+GRAVITY = .27
+JUMP_STRENGTH = -8
+SPEED = 4.5
 
 # Global variables
 player_pos = [WIDTH // 2, HEIGHT - PLAYER_SIZE]
@@ -67,17 +67,19 @@ def draw(canvas):
 # Key down handler
 def keydown(key):
     global player_vel
-    if key == simplegui.KEY_MAP["left"]:
+    if key == simplegui.KEY_MAP["left"] or key == simplegui.KEY_MAP["A"]:
         player_vel[0] = -SPEED
-    elif key == simplegui.KEY_MAP["right"]:
+    elif key == simplegui.KEY_MAP["right"] or key == simplegui.KEY_MAP["D"]:
         player_vel[0] = SPEED
-    elif key == simplegui.KEY_MAP["up"] and on_ground:
+    elif (key == simplegui.KEY_MAP["up"] and on_ground) or (key == simplegui.KEY_MAP["W"] and on_ground):
         player_vel[1] = JUMP_STRENGTH
 
 # Key up handler
 def keyup(key):
     global player_vel
     if key in (simplegui.KEY_MAP["left"], simplegui.KEY_MAP["right"]):
+        player_vel[0] = 0
+    elif key in (simplegui.KEY_MAP["A"], simplegui.KEY_MAP["D"]):
         player_vel[0] = 0
 
 # Create frame
