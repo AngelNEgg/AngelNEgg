@@ -8,15 +8,15 @@ import simplegui
 # Constants
 WIDTH = 600
 HEIGHT = 400
-PLAYER_SIZE = 20
+PLAYER_SIZE = 10
 GRAVITY = .27
-JUMP_STRENGTH = -8
+JUMP_STRENGTH = -6
 SPEED = 4.5
 
 # Global variables
 player_pos = [WIDTH // 2, HEIGHT - PLAYER_SIZE]
 player_vel = [0, 0]
-platforms = [[100, 300, 400, 10], [200, 200, 200, 10]]  # x, y, width, height
+platforms = [[100, 350, 150, 10], [200, 200, 200, 10]]  # x, y, width, height
 on_ground = False
 
 # Draw handler
@@ -24,7 +24,7 @@ def draw(canvas):
     global player_pos, player_vel, on_ground
 
     # Draw player
-    canvas.draw_circle(player_pos, PLAYER_SIZE, 1, "Blue", "Blue")
+    canvas.draw_circle(player_pos, PLAYER_SIZE, 3, "Navy", "Blue")
 
     # Draw platforms
     for platform in platforms:
@@ -84,6 +84,7 @@ def keyup(key):
 
 # Create frame
 frame = simplegui.create_frame("Platformer", WIDTH, HEIGHT)
+frame.set_canvas_background("#a1e9ff")
 frame.set_draw_handler(draw)
 frame.set_keydown_handler(keydown)
 frame.set_keyup_handler(keyup)
