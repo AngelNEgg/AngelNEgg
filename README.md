@@ -1,4 +1,8 @@
-### Hi there 👋
+### Hello! I am a game developer in training, and this account was made to keep track of some experimentation I've done with whatever languages I've learned as of now. I hope to impress many people someday.
+
+## Current projects:
+    -Unity 2D Platformer Framework
+    -Python/SimpleGUI Platformer & Top-Down RPG
 
 <!--
 **AngelNEgg/AngelNEgg** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
