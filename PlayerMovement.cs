@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public int playerFacing;
     public bool canJump;
     public bool doubleJump;
+    public bool coyoteTime;
     public bool wallJumpL;
     public bool wallJumpR;
     public float djTimer;
@@ -37,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
-        
+
+
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             playerFacing = 1;
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<Rigidbody2D>().linearVelocityY = zero;
                 GetComponent<Rigidbody2D>().linearVelocityY = jumpForce;
             }
-            else if(wallJumpL == true)
+            else if (wallJumpL == true)
             {
                 wallJumpL = false;
                 GetComponent<Rigidbody2D>().linearVelocity = resetX;
@@ -93,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             canJump = true;
             doubleJump = false;
@@ -101,12 +102,7 @@ public class PlayerMovement : MonoBehaviour
             wallJumpL = false;
         }
 
-        if (collision.gameObject.tag != "Ground")
-        {
-            GetComponent<Rigidbody2D>().linearVelocityX -= airDrag;
-        }
-
-            if (collision.gameObject.tag == "Ceiling")
+        if (collision.gameObject.tag == "Ceiling")
         {
             canJump = false;
         }
@@ -123,6 +119,40 @@ public class PlayerMovement : MonoBehaviour
             canJump = false;
             doubleJump = false;
             wallJumpR = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            canJump = false;
+            doubleJump = true;
+            wallJumpR = false;
+            wallJumpL = false;
+        }
+
+        if (collision.gameObject.tag == "Ground")
+        {
+            if (playerFacing == 1)
+            {
+                GetComponent<Rigidbody2D>().linearVelocityX += airDrag;
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().linearVelocityX -= airDrag;
+            }
+            
+        }
+
+        if (collision.gameObject.tag == "WallL")
+        {
+            wallJumpL = false;
+        }
+
+        if (collision.gameObject.tag == "WallR")
+        {
+            wallJumpR = false;
         }
     }
 }
