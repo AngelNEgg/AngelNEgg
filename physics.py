@@ -16,7 +16,7 @@ SPEED = 4.5
 # Global variables
 player_pos = [WIDTH // 2, HEIGHT - PLAYER_SIZE]
 player_vel = [0, 0]
-platforms = [[100, 350, 150, 10], [200, 200, 200, 10]]  # x, y, width, height
+platforms = [[100, 350, 150, 10], [390, 220, 200, 10],[160,150,150,10],[200,285,150,10]]  # x, y, width, height
 on_ground = False
 
 # Draw handler
