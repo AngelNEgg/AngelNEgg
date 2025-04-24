@@ -67,21 +67,30 @@ itemFunc()
 
 # Gameplay Functions
 def shell1Func():
+    global score
+    global health
+    choice = ""
+    
     choice = input("What will you do? ")
     if choice == "Choose Self" and shell1 == 1:
         time.sleep(2)
         print("You lost a health point.")
+        health -= 1
         chioce = input(("Do you want to use an item? "))
-        if choice == "Yes" and item == 4:
+        if choice == "Yes" and item == "Soda":
             item = 0
-            turnFunc()
+            health += 1
+            #turnFunc()
             shell2Func()
-        elif choice == "Yes" and item != 4:
-            print("You don't have healing items.")
             pass
-        else:
+        elif choice == "Yes" and item != "Soda":
+            print("You don't have healing items.")
+            #turnFunc()
+            shell2Func()
+            pass
+        elif choice == "No":
             print("Understood. Moving on, then.")
-            turnFunc()
+            #turnFunc()
             shell2Func()
             pass
         
@@ -89,24 +98,41 @@ def shell1Func():
         time.sleep(2)
         print("The shell was blank.")
         score += 1
+        #turnFunc()
         shell2Func()
+        pass
+    
+    elif choice == "Choose Opp" and shell1 == 1:
+        time.sleep(2)
+        print("Opponent lost a health point.")
+        score += 1
+        #turnFunc()
+        shell2Func()
+        pass
+    else:
+        print("Not a valid option")
+        shell1Func()
+        pass
     
 def shell2Func():
+    global score
+    global health
+    
     choice = input("What will you do? ")
-    if choice == "Choose Self" and shell1 == 1:
+    if choice == "Choose Self" and shell2 == 1:
         time.sleep(2)
         print("You lost a health point.")
         chioce = input(("Do you want to use an item? "))
-        if choice == "Yes" and item == 4:
+        if choice == "Yes" and item == "Soda":
             item = 0
-            turnFunc()
+            #turnFunc()
             #shell3Func()
-        elif choice == "Yes" and item != 4:
+        elif choice == "Yes" and item != "Soda":
             print("You don't have healing items.")
             pass
         else:
             print("Understood. Moving on, then.")
-            turnFunc()
+            #turnFunc()
             #shell3Func()
             pass
         
@@ -114,6 +140,20 @@ def shell2Func():
         time.sleep(2)
         print("The shell was blank.")
         score += 1
+        #turnFunc()
         #shell3Func()
+        pass
+    
+    elif choice == "Choose Opp" and shell2 == 1:
+        time.sleep(2)
+        print("Opponent lost a health point.")
+        score += 1
+        turnFunc()
+        #shell3Func()
+        pass
+    else:
+        print("Not a valid option")
+        shell2Func()
+        pass
         
 shell1Func()
