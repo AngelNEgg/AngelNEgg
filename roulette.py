@@ -11,7 +11,7 @@ a final objective. (Still a work in progress)'''
 # Imports
 import random
 import time
-import simplegui
+#import simplegui(future implementation)
 
 # Variables
 health = 3
@@ -148,7 +148,7 @@ def shell2Func():
         time.sleep(2)
         print("Opponent lost a health point.")
         score += 1
-        turnFunc()
+        #turnFunc()
         #shell3Func()
         pass
     else:
