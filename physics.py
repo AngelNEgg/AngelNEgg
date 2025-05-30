@@ -9,7 +9,7 @@ import simplegui
 WIDTH = 600
 HEIGHT = 400
 PLAYER_SIZE = 10
-GRAVITY = .27
+GRAVITY = .2
 JUMP_STRENGTH = -6
 SPEED = 4.5
 
@@ -71,7 +71,7 @@ def keydown(key):
         player_vel[0] = -SPEED
     elif key == simplegui.KEY_MAP["right"] or key == simplegui.KEY_MAP["D"]:
         player_vel[0] = SPEED
-    elif (key == simplegui.KEY_MAP["up"] and on_ground) or (key == simplegui.KEY_MAP["W"] and on_ground):
+    elif (key == simplegui.KEY_MAP["up"] and on_ground) or (key == simplegui.KEY_MAP["W"] and on_ground) or (key == simplegui.KEY_MAP["space"] and on_ground):
         player_vel[1] = JUMP_STRENGTH
 
 # Key up handler
