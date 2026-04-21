@@ -1,0 +1,28 @@
+body {
+  background-color: darkslategray;
+  /*temporary color*/
+}
+
+h1 {
+  
+}
+
+h3 {
+  
+}
+
+.header,.content {
+  border: 5px outset white;
+  background-image: linear-gradient(red,yellow);
+}
+
+p {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.right {
+  /* color: black;*/
+  font-style: italic;
+  font-size: 12px;
+  text-align: right;
+}
