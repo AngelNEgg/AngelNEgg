@@ -3,6 +3,7 @@
 ## Current projects:
     -Unity 2D Platformer Framework
     -Python/SimpleGUI Platformer & Top-Down RPG
+    -HS Blog Project
 
 <!--
 **AngelNEgg/AngelNEgg** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
