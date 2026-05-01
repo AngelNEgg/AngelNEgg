@@ -1,6 +1,7 @@
 body {
   background-color: darkslategray;
   /*temporary color*/
+  display: none;
 }
 
 h1 {
@@ -13,7 +14,17 @@ h3 {
 
 .header,.content {
   border: 5px outset white;
-  background-image: linear-gradient(red,yellow);
+  background-color: gray;
+  /*background-image: linear-gradient(red,yellow);*/
+}
+
+.header {
+  display: flex;
+  width: 500px;
+}
+
+.content {
+  padding: 10px;
 }
 
 p {
@@ -25,4 +36,12 @@ p {
   font-style: italic;
   font-size: 12px;
   text-align: right;
+}
+
+#text {
+  padding-left: 10px;
+}
+
+#image {
+  padding: 10px;
 }
